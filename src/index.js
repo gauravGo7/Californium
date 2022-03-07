@@ -22,6 +22,10 @@ let globalMiddleware = function(req, res, next){
     req.headers.organisation = name
     //console.log('content-type header is '+contentTypeHeader)
     console.log('After adding custom header '+JSON.stringify(req.headers))
+    console.log('Before adding custom response header '+JSON.stringify(res.getHeaders()))
+    res.setHeader('batch','thorium')
+    console.log('After adding custom response header '+JSON.stringify(res.getHeaders()))
+    req.newAtribute = 'India'
     let date = currentDate.getDate()
     let month = currentDate.getMonth() + 1
     let year = currentDate.getFullYear()
