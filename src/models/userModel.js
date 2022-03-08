@@ -9,16 +9,12 @@ const userSchema = new mongoose.Schema( {
         required: true
     },
     emailId: String,
+    password: String,
     gender: {
         type: String,
-        enum: ["male", "female", "LGBTQ"] //"falana" will give an error
+        enum: ["male", "female", "other"]
     },
     age: Number,
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema) //users
-
-
-
-// String, Number
-// Boolean, Object/json, array
+module.exports = mongoose.model('User', userSchema)
