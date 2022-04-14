@@ -8,7 +8,7 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
-router.post("/createUser", authorController.createAuthor  )
+router.post("/createAuthor", authorController.createAuthor  )
 
 router.get("/getAuthorsData", authorController.getAuthorsData)
 
