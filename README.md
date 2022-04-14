@@ -1,4 +1,4 @@
-# thorium
-Backend cohort Feb 2022 - May 2022
+# uranium
+Backend cohort Mar 2022 - Jul 2022
 
-Assigment : https://docs.google.com/document/d/1F7b6nA1l8UcA8QgRktSGzk91k8JqJeNBtOCluTh_DCE/edit
+Assigment : https://docs.google.com/document/d/1ypIh7p62bI_L_xpWHeD4WkEGwcGZJBVC7eSIcj9cMnA/edit#
