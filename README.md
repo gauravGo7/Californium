@@ -1,4 +1,4 @@
-# TOPIC: Middleware2
+# TOPIC: Authorisation
 
 ## Authentication with JWT
 - Token generation
@@ -36,7 +36,9 @@ If present, check that the token is valid.
 - Add this middleware at route level in the routes where applicale.
 
 ```diff
-+ Please note that you have to also write the logic for authorisation so that a logged in user can only modify or fetch their own data.
++ Please note that you have to also write the logic for authorisation now so that a logged in user can modify or fetch only their own data.
++ You have to implement authorisation for fetch user details, update user and delete user apisg
++ You have to move this similar code in all three apis in a suitable middleware
 
 ``` 
 
