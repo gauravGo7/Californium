@@ -4,6 +4,9 @@
 - Token generation
 - Token verification
 
+*Note:* Remember that authentication means validating the identity of a user. Both token generation and verification together implement authentication. 
+Think of this like getting an ID card the first day of your college and then showing that to a guard seated outside your college's campus gate in future. By showing them this token you are confirming your identity to them. Only a legitimate(valid) student who has taken the admission can own an official ID card.
+
 ## Assignment
 - For this assignment you have to create a new branch - assignment/auth-1
 - Your user document should look like this
@@ -30,8 +33,12 @@
 On successful login, generate a JWT token and return it in response body. Example 
 ```
 {
- token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-}
+    status: true,
+    data: {
+        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+
+    }
+ }
 ```
 - Write a **GET api /users/:userId** to fetch user details. Pass the userId as path param in the url. Check that request must contain **x-auth-token** header. If absent, return a suitable error.
 If present, check that the token is valid.
