@@ -70,4 +70,47 @@ router.post("/test-post-4", function(req, res) {
     res.send(  { msg: arr , status: true }  )
 })
 
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": [
+               "swimming"
+           ]
+       },
+       {
+           "name": "gopal",
+           "dob": "1/09/1995",
+           "gender": "male",
+           "city": "delhi",
+           "sports": [
+               "soccer"
+           ],
+       },
+       {
+           "name": "lokesh",
+           "dob": "1/1/1990",
+           "gender": "male",
+           "city": "mumbai",
+           "sports": [
+               "soccer"
+           ],
+       },
+   ]
+
+router.post("/players",function (req, res) {
+    let newplayer=req.body
+    let newlist=req.body.name
+    for(i of players){
+    if(i.name==newlist){
+        return res.send("player data alredy exists")
+    }} (players.push(newplayer))
+        res.send({ msg: players, status:true});
+    });
+
+
+
 module.exports = router;
