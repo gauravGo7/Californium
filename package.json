@@ -1,7 +1,7 @@
 {
   "name": "src",
   "version": "1.0.0",
-  "description": "Backend cohort for Plutonium(Jul-Nov)",
+  "description": "Backend cohort Nov 2022 - Mar 2023",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
