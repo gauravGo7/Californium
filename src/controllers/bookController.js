@@ -4,15 +4,9 @@ const BookModel = require("../models/bookModel")
 const createBook= async function (req, res) {
     
     let data= req.body
-
     let savedData= await BookModel.create(data)
     res.send({msg: savedData})
 }
-
-
-
-
-
 
 const getBooksData = async function (req, res) {
     let allBooks = await BookModel.find({ authorName: "HO" })
@@ -20,7 +14,6 @@ const getBooksData = async function (req, res) {
     if (allBooks.length > 0) res.send({ msg: allBooks, condition: true })
     else res.send({ msg: "No books found", condition: false })
 }
-
 
 const updateBooks = async function (req, res) {
     let data = req.body // {sales: "1200"}
@@ -47,8 +40,6 @@ const deleteBooks = async function (req, res) {
 
     res.send({ msg: allBooks })
 }
-
-
 
 const totalSalesPerAuthor = async function (req, res) {
     // let data = req.body 

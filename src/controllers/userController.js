@@ -1,15 +1,11 @@
 const { type } = require("express/lib/response")
 const UserModel= require("../models/userModel")
 
-
-
-
 const basicCode= async function(req, res) {
     
     let contentTypeHeader = req.headers.content-type
     console.log("The headers received in this request are: ", req.headers)
     console.log("The content type header is: ", contentTypeHeader)
-
 
     req.headers.month = "December"
     req.batch = "Californium"
@@ -24,25 +20,7 @@ const basicCode= async function(req, res) {
     console.log("The request object looks like this: ", req)
     res.send({ msg: "This is coming from controller (handler)"})
     
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 const createUser= async function (req, res) {
     let data= req.body
