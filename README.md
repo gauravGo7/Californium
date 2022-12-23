@@ -53,7 +53,7 @@ Your Order document looks like this.
 NOTE: In some of the below apis a header validation is to be performed (create user and create order). The name of the header is ‘isFreeAppUser’. Write a header validation that simply checks whether this header is present or not. Please note this validation should only be called in create user and create order apis. Perform this validation in a middleware.
 
 - Write a POST api to create a product from the product details in request body. 
-- Write a POST api to create a user that takes user details from the request body. If the header **isFreeAppUser** is not present terminate the request response cycle with an error message that the request is missing a mandatory header. The value of field isFreeAppUser is determined by **isFreeAppUser** request header.
+- Write a POST api to create a user that takes user details from the request body. If the header **isFreeAppUser** is not present terminate the request response cycle with an error message that the request is missing a mandatory header. The value of field isFreeAppUser in a user document is determined by **isFreeAppUser** request header.
 - Write a POST api for order purchase that takes a userId and a productId in request body. 
 If the header **isFreeAppUser** is not present terminate the request response cycle with an error message that the request is missing a mandatory header
 If the header is present the control goes to the request handler. Perform the user and product validation. Check if the user exists as well as whether the product exists. Return an error with a suitable error message if either of these validations fail
