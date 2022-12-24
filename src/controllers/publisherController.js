@@ -9,10 +9,6 @@ const getPublisher=async function(req,res){
     res.send({data:getPubli})
 }
 
-const getPublisherWithAuthorDetails=async function(req,res){
-    let specificPub=await publisher.find().populate('author_id')
-    res.send({data:specificPub})
-}
+
 module.exports.createPublisher=createPublisher
 module.exports.getPublisher=getPublisher
-module.exports.getPublisherWithAuthorDetails=getPublisherWithAuthorDetails
