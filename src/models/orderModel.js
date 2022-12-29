@@ -6,7 +6,8 @@ const orderSchema =  new mongoose.Schema({
       type: objectId,
       ref : "Useer"
       },
-    productId: objectId,
+    productId:{type: objectId,
+    ref:"product"},
            
     amount: Number,
     isFreeAppUser: Boolean,

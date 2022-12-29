@@ -1,4 +1,4 @@
-
+const { count } = require("console")
 const productModel = require("../models/productModel")
 
 const createProduct= async function (req, res) {

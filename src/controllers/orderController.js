@@ -35,7 +35,7 @@ let product= await productModel.findById(pId)
         let update= await userModel.findByIdAndUpdate(uId,{$set:{balance:(balance-cost)}},{new:true})
         let amount= await orderModel.findByIdAndUpdate(uId,{$set:{amount:price}},{new:true})
          let savedData= await orderModel.create(data)
-         res.send({msg: savedData, user:update})}
+         res.send({msg: savedData, user:amount,balance:update})}
         
          else{
             return res.send({msg: "insufficent balance"})}

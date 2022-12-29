@@ -1,23 +1,32 @@
 const express = require('express');
 const router = express.Router();
-// const UserModel= require("../models/userModel.js")
 const UserController= require("../controllers/userController")
 const BookController= require("../controllers/bookController")
-const commonMW1 = require ("../middlewares/commonMiddlewares")
-const commonMW2 = require ("../middlewares/myMiddlewares")
-const productController= require("../controllers/productController")
-const orderController= require("../controllers/orderController")
-const useerController= require("../controllers/useerController")
+const commonMW = require ("../middlewares/commonMiddlewares")
+const authorcontroller = require ("../controllers/authorController")
 
 router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
-router.post("/createBook", commonMW1.abc, BookController.createBook  )
-router.post("/basicRoute", commonMW1.mid1, commonMW1.mid2, commonMW1.mid3, commonMW1.abc, UserController.basicCode, commonMW1.mid4)
-router.post("/createProduct", productController.createProduct)
-router.post("/createUseer",commonMW2.mid1, useerController.createUseer)
-router.post("/createOrder",commonMW2.mid1, orderController.createOrder)
+//Can we set the 'next' input parameter in a route handler?
+//What is the primary difference between a middleware and a route handler?
+router.post("/createBook", commonMW.myMiddleware,BookController.createBook, function(req, res, next){
+    res.send("Ending the cycle")
+}  )
+
+router.post("/createUse", commonMW.myMiddleware, UserController.createUser)
+
+router.post("/createUser", commonMW.ValidationMiddleware,authorcontroller.createUser)
+
+router.post("/createProduct",authorcontroller.createProduct)
+
+router.post("/createOrder", commonMW.ValidationMiddleware,authorcontroller.createOrder)
+
+router.get("/dummy1", commonMW.myOtherMiddleware, UserController.dummyOne)
+
+router.get("/dummy2", commonMW.myOtherMiddleware, UserController.dummyTwo)
+
+router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4, UserController.basicCode)
 
 module.exports = router;
-

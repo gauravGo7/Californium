@@ -20,29 +20,46 @@ const mid4= function ( req, res, next) {
     next()
 }
 
-const abc = function(req, res, next) {
-    //get the users IP
-    //save it in db
-    // console log
+const myMiddleware = function(req, res, next){
+    req.month = "November"
+    console.log('I am inside a middleware!')
     next()
 }
 
-const def = function(req, res, next) {
-   //get the users IP
-   //save it in db
-   // console log
-   next()
+const myOtherMiddleware = function(req, res, next){
+    // Setting an attribute 'wantsJson' in request
+    // The header value comparison is done once and
+    // the result can be used directly wherever required.
+    let acceptHeaderValue = req.headers["accept"]
+
+    if(acceptHeaderValue == "application/json") {
+        req.wantsJson = true
+    } else {
+        req.wantsJson = false
+    }
+    next()
 }
 
-const xyz = function(req, res, next) {
-   //get the users IP
-   //save it in db
-   // console log
-   next()
+const ValidationMiddleware = function(req, res, next){
+    
+    isFreeAppUser = req.headers["isfreeappuser"]
+    // req.fa=isFreeAppUser
+    // console.log(req)
+    
+
+    if(isFreeAppUser==undefined) {
+        return res.send("request is missing a mandatory header")
+    }
+   
+    next()
 }
+
+
 
 module.exports.mid1= mid1
 module.exports.mid2= mid2
 module.exports.mid3= mid3
 module.exports.mid4= mid4
-module.exports.abc = abc
+module.exports.myMiddleware = myMiddleware
+module.exports.myOtherMiddleware = myOtherMiddleware
+module.exports.ValidationMiddleware = ValidationMiddleware
