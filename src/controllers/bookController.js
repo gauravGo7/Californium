@@ -24,10 +24,6 @@ const createBook = async function (req, res) {
 // code in catch block is normallly not executed
 //rather catch block is only executed if there is error in try block
 // the error( along with message++) gets sent to catch block incase there is an error
-
-
-
-
 // Specific HTTP codes(only impt ones)
 // 2xx- Success
 // 4xx- something gone wrong..and problem is on user side(client side)
@@ -42,30 +38,12 @@ const createBook = async function (req, res) {
 // -- ALL GOOD... //status(200)- OK
 // --- "ALL GOOD and A NEW RESOURCE WAS SUCCEFULLY CREATED" ...status(201)..e.g a new user registers herself successfully
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const getBooksData = async function (req, res) {
     let allBooks = await BookModel.find({ authorName: "HO" })
     console.log(allBooks)
     if (allBooks.length > 0) res.send({ msg: allBooks, condition: true })
     else res.send({ msg: "No books found", condition: false })
 }
-
 
 const updateBooks = async function (req, res) {
     let data = req.body // {sales: "1200"}
@@ -93,8 +71,6 @@ const deleteBooks = async function (req, res) {
     res.send({ msg: allBooks })
 }
 
-
-
 const totalSalesPerAuthor = async function (req, res) {
     // let data = req.body 
     let allAuthorSales = await BookModel.aggregate(
@@ -106,9 +82,6 @@ const totalSalesPerAuthor = async function (req, res) {
 
     res.send({ msg: allAuthorSales })
 }
-
-
-
 
 // CRUD OPERATIONS:
 // CREATE
